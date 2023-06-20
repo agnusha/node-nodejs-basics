@@ -1,11 +1,11 @@
-import path from 'node:path';
-import { access, writeFile, constants } from 'node:fs/promises';
-import { fileURLToPath } from 'url';
+import { dirname, join } from 'node:path';
+import { access, writeFile } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
 
 const create = async () => {
     // Write your code here 
-    const folder = path.dirname(fileURLToPath(import.meta.url))
-    const file = path.join(folder, 'files', 'fresh.txt');
+    const folder = dirname(fileURLToPath(import.meta.url))
+    const file = join(folder, 'files', 'fresh.txt');
 
     try {
         if (await fileExists(file)) {
