@@ -13,7 +13,7 @@ const create = async () => {
         }
         await writeFile(file, 'I am fresh and young');
     } catch (error) {
-        throw new Error(`File creation operation failed: ${error.message}`);
+        console.error(`File creation operation failed: ${error.message}`);
     }
 };
 
