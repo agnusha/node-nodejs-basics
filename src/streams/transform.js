@@ -1,5 +1,6 @@
 import { Transform } from 'node:stream';
 import { stdin, stdout } from 'node:process';
+import { pipeline } from 'node:stream/promises';
 
 
 const transform = async () => {
@@ -10,7 +11,8 @@ const transform = async () => {
         }
     });
 
-    stdin.pipe(reversed).pipe(stdout);
+    // stdin.pipe(reversed).pipe(stdout);
+    await pipeline(stdin, reversed, stdout);
 };
 
 await transform();
